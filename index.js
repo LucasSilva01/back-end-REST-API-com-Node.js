@@ -4,6 +4,8 @@ const requireDir = require('require-dir');
 const cors = require('cors');
 
 
+
+
 const app = express();
 
 //permite dados do tipo json

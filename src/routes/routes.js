@@ -6,6 +6,8 @@ const usuarioController = require('../controllers/usuarioController')
 
 routes.post('/usuarios', usuarioController.insert);
 
+routes.get('/usuarios', usuarioController.index);
 
+routes.get('/usuarios/:id', usuarioController.details);
 
 module.exports = routes;

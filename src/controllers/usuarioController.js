@@ -10,5 +10,21 @@ module.exports = {
             console.log("O erro foi: "+err)
         })
         return res.json(usuarios);
-    }
+    },
+
+    async index(req, res){
+        const {page} = req.query;
+
+        const usuarios = await Usuario.paginate({}, {page, limit: 5 });
+        
+        return res.json(usuarios);
+    
+    },
+
+    async details(req, res){
+        const usuarios = await Usuario.findById(req.params.id);
+        return res.json(usuarios);
+    },
+
+
 }
