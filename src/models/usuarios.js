@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose')
 
-const PromotorSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
     nome: {
         type: String,
         require: true,
@@ -43,4 +43,4 @@ const PromotorSchema = new mongoose.Schema({
 
 });
 
-mongoose.model('Promotor', PromotorSchema);
+mongoose.model('User', UserSchema);

@@ -11,9 +11,27 @@ app.use(express.json());
 app.use(cors());
 
 //evitar problema de compatibiladde
-mongoose.connect('mongodb://localhost:27017/armazenamento', {useNewUrlParser: true});
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost:27017/curso',{
+    useNewUrlParser:true, useUnifiedTopology: true
+}).then(() =>{ 
+    console.log("Conectado ao mongo!")
+}).catch((err) => {
+    console.log("Erro do carai: "+err)
+})
+
+requireDir('./src/models')
+app.use('/sistema', require('./src/routes/routes'));
+
+
+const PORT = 3005
+
+app.listen(PORT, () => {
+    requireDir('./src/models')
+    app.use('/sistema', require('./src/routes/routes'))
+    console.log("Servidor Rodando")
+})
+
 
 //todos modelos estão dentro da pasta models
-requireDir('./src/models')
-app.use('/sistema', require('./src/routes/routes'))
-app.listen(3001);
+
