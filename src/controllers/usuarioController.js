@@ -26,5 +26,10 @@ module.exports = {
         return res.json(usuarios);
     },
 
+    async update(req, res){
+        const usuarios = await Usuario.findByIdAndUpdate(req.params.id, req.body, {new: true});
+
+        return res.json(usuarios);
+    }
 
 }

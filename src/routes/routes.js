@@ -10,4 +10,7 @@ routes.get('/usuarios', usuarioController.index);
 
 routes.get('/usuarios/:id', usuarioController.details);
 
+routes.put('/usuarios/:id', usuarioController.update);
+
+
 module.exports = routes;
