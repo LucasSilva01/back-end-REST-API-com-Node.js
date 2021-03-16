@@ -30,6 +30,13 @@ module.exports = {
         const usuarios = await Usuario.findByIdAndUpdate(req.params.id, req.body, {new: true});
 
         return res.json(usuarios);
+    },
+
+    async delete(req, res){
+        
+        await Usuario.findByIdAndRemove(req.params.id);
+        
+        return res.send()
     }
 
 }

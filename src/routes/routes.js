@@ -12,5 +12,6 @@ routes.get('/usuarios/:id', usuarioController.details);
 
 routes.put('/usuarios/:id', usuarioController.update);
 
+routes.delete('/usuarios/:id', usuarioController.delete)
 
 module.exports = routes;
