@@ -3,7 +3,7 @@ const Usuario = mongoose.model('User');
 
 module.exports = {
     async insert (req, res){
-        const usuarios = await Usuario.createIndexes(req.body).then(()=>{
+        const usuarios = await Usuario.create(req.body).then(()=>{
             console.log("Deu certo")
             
         }).catch((err)=>{
@@ -15,9 +15,9 @@ module.exports = {
     },
 
     async index(req, res){
-        const {page} = req.query;
 
-        const usuarios = await Usuario.paginate({}, {page, limit: 5 });
+
+        const usuarios = await Usuario.find(req.params);
         
         return res.json(usuarios);
     
@@ -48,7 +48,7 @@ module.exports = {
     async delete(req, res){
         
         await Usuario.findByIdAndRemove(req.params.id).then(()=>{
-            console.log("Deu certo")
+            console.log("deletado")
             
         }).catch((err)=>{
             console.log("O erro foi: "+err)
