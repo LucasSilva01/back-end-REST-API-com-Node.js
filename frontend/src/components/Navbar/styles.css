@@ -1,0 +1,44 @@
+.navbar{
+    padding: 20px;
+    border-radius: 12px;
+    font-family: Leckerli One;
+    background-color: #020202;
+    overflow: hidden;
+  }
+  
+  .navbar a{
+    float: left;
+    position: relative;
+    color: #f2f2f2;
+    display: flex;
+    text-align: center;
+    border: 2.5px solid #000000;
+    border-radius: 15px;
+    padding: 0.4rem;
+    font-size: 22px;
+    transition: color 0.30s ease, border-color 0.30s ease;
+  }
+  
+  .navbar a:hover{
+    color: #0070f3;
+    border-color: #0070f3; 
+  }
+
+  .button{
+    color: inherit;
+    float: right;
+    border-radius: 12px;
+    text-align:center;
+  }
+  
+  .button a:hover{
+    background-color: #02ce13;
+    color:#f8f8f8;
+    border-radius: 20px;
+  }
+
+  
+.login{
+    float: right;
+  }
+
