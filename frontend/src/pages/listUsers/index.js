@@ -38,6 +38,7 @@ const Usuarios = () => {
             handleChange = {handleChange}
             searchValue = {searchValue}
         />
+        
         {filteredUsers.length === 0 &&(
         <h1>
             Produtor não encontrado.
