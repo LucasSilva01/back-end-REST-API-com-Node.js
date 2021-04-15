@@ -13,8 +13,7 @@ const Usuarios = () => {
         setUsuarios(response.data)
         setAllUsers(response.data)
     },[]);
-      
-      
+        
     const handleChange = (e) => {
         const { value } = e.target;
         setSearchValue(value)
@@ -24,7 +23,7 @@ const Usuarios = () => {
         loadUsuarios();
     },[loadUsuarios]);
     
-
+    
     const filteredUsers = !!searchValue ? allUsers.filter(user => {
         return user.nome.toLowerCase().includes(searchValue.toLowerCase());
     })
