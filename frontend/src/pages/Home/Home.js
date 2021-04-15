@@ -1,6 +1,6 @@
 import Footer from "../../components/Footer/footer";
 import Navbar from "../../components/Navbar/navbar";
-import Usuarios from "../listUsers";
+
 
 function Home() {
   return (
@@ -9,7 +9,7 @@ function Home() {
       <div>
         <Navbar/>
       </div>
-        <Usuarios/>
+        
       <div>
         <Footer/>
       </div>
