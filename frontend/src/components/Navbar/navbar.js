@@ -1,15 +1,14 @@
-import './styles.css'
-
+import './styles.css';
 function Navbar(){
     return(
-            <div>
+            <div >
                 <div className = 'navbar'>
                 <a href = "/">Home</a>
                 <a href = "/events">Eventos</a>
-                <a href = "/">Produtores</a>
-           
+                <a href = "/products">Produtores</a>
                 <a href = "/">Ajude-me</a>
-
+                
+                
                 <div  className = 'button'>
                     <a href = "/">Login</a>
                 </div>
@@ -21,4 +20,5 @@ function Navbar(){
         </div>
     )
 }
+
 export default Navbar
