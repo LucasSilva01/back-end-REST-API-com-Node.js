@@ -1,6 +1,6 @@
 /*Criar modelo de usuários*/
-
 const mongoose = require('mongoose')
+const bcrypt = require('bcryptjs')
 const UserSchema = new mongoose.Schema({
     nome: {
         type: String,
@@ -10,10 +10,18 @@ const UserSchema = new mongoose.Schema({
     }, 
     email: {
         type: String,
+        unique:true,
         require: true,
         minlenght: 3,
         maxlenght: 100,
     }, 
+    password:{
+        type: String,
+        require: true,
+        minlenght: 8,
+        maxlenght: 100,
+        select: false,
+    },
     cpf: {
         type: Number,
         require: true,
@@ -31,5 +39,10 @@ const UserSchema = new mongoose.Schema({
     }
 });
 
+UserSchema.pre('save', async function(next){
+    const hash = await bcrypt.hash(this.password, 10);
+    this.password = hash;
+});
+const User = mongoose.model('User', UserSchema);
 
-mongoose.model('User', UserSchema);
+module.exports = User;

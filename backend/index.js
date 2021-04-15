@@ -1,13 +1,16 @@
 const express = require('express');
+const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
 const requireDir = require('require-dir');
 const cors = require('cors');
 requireDir('./src/models')
 
 const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 
 //permite dados do tipo json
-app.use(express.json());
+
 app.use(cors());
 
 
@@ -18,14 +21,16 @@ mongoose.connect('mongodb://localhost:27017/curso',{
 mongoose.set('useCreateIndex', true)
 
 
-app.use('/sistema', require('./src/routes/routes'));
 
 const PORT = 3005
+require('./src/controllers/authController')(app);
 
 app.listen(PORT, () => {
     
     console.log("Servidor Rodando")
 })
+
+
 
 
 //todos modelos estão dentro da pasta models
