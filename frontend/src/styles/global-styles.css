@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+
   }
   
   body {
@@ -11,6 +13,7 @@
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background: rgb(2, 173, 252);
   }
   
   code {
