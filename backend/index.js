@@ -24,6 +24,8 @@ mongoose.set('useCreateIndex', true)
 
 const PORT = 3005
 require('./src/controllers/authController')(app);
+require('./src/controllers/eventsController')(app);
+
 
 app.listen(PORT, () => {
     

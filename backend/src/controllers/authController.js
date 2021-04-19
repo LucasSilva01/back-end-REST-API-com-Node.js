@@ -1,9 +1,9 @@
 const express = require('express');
 const bcrypt = require('bcryptjs')
 const User = require('../models/usuarios');
-
+const jwt = require('jsonwebtoken');
 const router = express.Router(); 
-
+const authConfig = require('../config/auth')
 router.post('/register', async(req, res) => {
     const { email } = req.body;
     try{
@@ -14,11 +14,18 @@ router.post('/register', async(req, res) => {
         
         user.password = undefined;
 
-        return res.send({ user });
+        return res.send({ user, 
+            token: generateToken({ id: user.id })  });
     } catch (err) {
         return res.status(400).send({ error: 'Resgistration failed.'});
     }
 });
+
+function generateToken(params = {}){
+    return jwt.sign({ params }, authConfig.secret, {
+        expiresIn: 86400,
+    })
+}
 
 router.post('/authenticate', async (req, res)=>{
     const { email, password } = req.body;
@@ -31,7 +38,9 @@ router.post('/authenticate', async (req, res)=>{
         return res.status(400).send({ error: 'Invalid password'});
     }
     user.password = undefined;
-    res.send({ user });
+
+    
+    res.send({ user, token: generateToken({ id: user.id }) });
 })
 
 
