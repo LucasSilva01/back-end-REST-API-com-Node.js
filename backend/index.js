@@ -3,7 +3,6 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
 const requireDir = require('require-dir');
 const cors = require('cors');
-requireDir('./src/models')
 
 const app = express();
 app.use(bodyParser.json());
@@ -23,8 +22,8 @@ mongoose.set('useCreateIndex', true)
 
 
 const PORT = 3005
-require('./src/controllers/authController')(app);
-require('./src/controllers/eventsController')(app);
+require('./src/app/controllers/index')(app);
+
 
 
 app.listen(PORT, () => {
