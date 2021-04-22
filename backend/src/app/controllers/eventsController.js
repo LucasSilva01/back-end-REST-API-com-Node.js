@@ -17,8 +17,14 @@ router.get('/:eventId', async (req, res) => {
     res.send({ user: req.userId });
 })
 
-router.post('/', async (req, res) => {
-    res.send({ user: req.userId });
+router.post('/registerEvent', async (req, res) => {
+    try{
+        const event = await Event.create(req.body);
+        return res.send({ event });
+
+    }catch(err){
+        return res.status(400).send({ error: 'Erro ao criar' })
+    }
 })
 
 router.put('/:eventId', async (req, res) => {
