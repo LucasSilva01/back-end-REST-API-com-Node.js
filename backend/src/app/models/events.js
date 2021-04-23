@@ -1,6 +1,12 @@
 const mongoose = require('mongoose')
 
 const EventSchema = new mongoose.Schema({
+    
+    user:{
+		type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        require: true,
+	},
     name: {
 		type: String,
 		require: true,
@@ -86,12 +92,6 @@ const EventSchema = new mongoose.Schema({
 	    default: Date.now,
 	},
 
-	user:{
-		type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        require: true,
-	},
-
 	latitude:{
 		type: Number,
 		require: true,
@@ -105,5 +105,6 @@ const EventSchema = new mongoose.Schema({
 		default: 22222,
 	},
 });
+
 const Event = mongoose.model('Event', EventSchema);
 module.exports = Event;
