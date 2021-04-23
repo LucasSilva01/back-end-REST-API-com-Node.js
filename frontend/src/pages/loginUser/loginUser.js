@@ -2,7 +2,7 @@ import Footer from "../../components/Footer/footer";
 import Navbar from "../../components/Navbar/navbar";
 
 
-function Home() {
+function loginUser() {
   return (
 
     <div className="App">
@@ -19,4 +19,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default loginUser;
