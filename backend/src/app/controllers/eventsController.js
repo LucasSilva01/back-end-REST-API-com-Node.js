@@ -6,9 +6,9 @@ const Event = require('../models/events');
 router.use(authMiddleware);
 
 
-router.get('/', (req, res) => {
+router.get('/listAll', (req, res) => {
     res.send({
-        user: req.userId
+        user: req.user
     })
     
 })
